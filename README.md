@@ -136,6 +136,20 @@ temp_data.head(15)
 
 
 
+
+```python
+temp_data.info()
+```
+
+    <class 'pandas.core.frame.DataFrame'>
+    RangeIndex: 3650 entries, 0 to 3649
+    Data columns (total 2 columns):
+    Date         3650 non-null object
+    Daily_min    3650 non-null float64
+    dtypes: float64(1), object(1)
+    memory usage: 57.1+ KB
+
+
 Now, let's look at the information of our data set. 
 
 
@@ -150,6 +164,83 @@ temp_data.info()
     Daily_min    3650 non-null float64
     dtypes: float64(1), object(1)
     memory usage: 57.1+ KB
+
+
+
+```python
+temp_data.Date = pd.to_datetime(temp_data.Date)
+temp_data.info()
+```
+
+    <class 'pandas.core.frame.DataFrame'>
+    RangeIndex: 3650 entries, 0 to 3649
+    Data columns (total 2 columns):
+    Date         3650 non-null datetime64[ns]
+    Daily_min    3650 non-null float64
+    dtypes: datetime64[ns](1), float64(1)
+    memory usage: 57.1 KB
+
+
+
+```python
+temp_data.head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>Daily_min</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1981-01-01</td>
+      <td>20.7</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1981-02-01</td>
+      <td>17.9</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1981-03-01</td>
+      <td>18.8</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1981-04-01</td>
+      <td>14.6</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1981-05-01</td>
+      <td>15.8</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 
 
 While working with time series data in Python, it's important to always ensure that dates are used as index values and are understood my Python as a true "date" object. This can be done either by using Pandas' `Timestamp` or base Python’s `Datetime` and is interchangeable in most cases. It’s the type used for the entries that make up a `DatetimeIndex`, and other timeseries oriented data structures in pandas. Further details on Timestamp can be found [here](http://pandas.pydata.org/pandas-docs/stable/generated/pandas.Timestamp.html).
@@ -243,47 +334,47 @@ temp_data.head(15)
       <td>20.7</td>
     </tr>
     <tr>
-      <th>1981-01-02</th>
+      <th>1981-02-01</th>
       <td>17.9</td>
     </tr>
     <tr>
-      <th>1981-01-03</th>
+      <th>1981-03-01</th>
       <td>18.8</td>
     </tr>
     <tr>
-      <th>1981-01-04</th>
+      <th>1981-04-01</th>
       <td>14.6</td>
     </tr>
     <tr>
-      <th>1981-01-05</th>
+      <th>1981-05-01</th>
       <td>15.8</td>
     </tr>
     <tr>
-      <th>1981-01-06</th>
+      <th>1981-06-01</th>
       <td>15.8</td>
     </tr>
     <tr>
-      <th>1981-01-07</th>
+      <th>1981-07-01</th>
       <td>15.8</td>
     </tr>
     <tr>
-      <th>1981-01-08</th>
+      <th>1981-08-01</th>
       <td>17.4</td>
     </tr>
     <tr>
-      <th>1981-01-09</th>
+      <th>1981-09-01</th>
       <td>21.8</td>
     </tr>
     <tr>
-      <th>1981-01-10</th>
+      <th>1981-10-01</th>
       <td>20.0</td>
     </tr>
     <tr>
-      <th>1981-01-11</th>
+      <th>1981-11-01</th>
       <td>16.2</td>
     </tr>
     <tr>
-      <th>1981-01-12</th>
+      <th>1981-12-01</th>
       <td>13.3</td>
     </tr>
     <tr>
@@ -354,63 +445,63 @@ month_mean.head(15)
   <tbody>
     <tr>
       <th>1981-01-01</th>
-      <td>17.712903</td>
+      <td>15.729032</td>
     </tr>
     <tr>
       <th>1981-02-01</th>
-      <td>17.678571</td>
+      <td>15.864286</td>
     </tr>
     <tr>
       <th>1981-03-01</th>
-      <td>13.500000</td>
+      <td>12.893548</td>
     </tr>
     <tr>
       <th>1981-04-01</th>
-      <td>12.356667</td>
+      <td>11.346667</td>
     </tr>
     <tr>
       <th>1981-05-01</th>
-      <td>9.490323</td>
+      <td>9.741935</td>
     </tr>
     <tr>
       <th>1981-06-01</th>
-      <td>7.306667</td>
+      <td>9.150000</td>
     </tr>
     <tr>
       <th>1981-07-01</th>
-      <td>7.577419</td>
+      <td>8.758065</td>
     </tr>
     <tr>
       <th>1981-08-01</th>
-      <td>7.238710</td>
+      <td>9.151613</td>
     </tr>
     <tr>
       <th>1981-09-01</th>
-      <td>10.143333</td>
+      <td>11.473333</td>
     </tr>
     <tr>
       <th>1981-10-01</th>
-      <td>10.087097</td>
+      <td>10.664516</td>
     </tr>
     <tr>
       <th>1981-11-01</th>
-      <td>11.890000</td>
+      <td>11.260000</td>
     </tr>
     <tr>
       <th>1981-12-01</th>
-      <td>13.680645</td>
+      <td>12.503226</td>
     </tr>
     <tr>
       <th>1982-01-01</th>
-      <td>16.567742</td>
+      <td>14.396774</td>
     </tr>
     <tr>
       <th>1982-02-01</th>
-      <td>15.921429</td>
+      <td>13.164286</td>
     </tr>
     <tr>
       <th>1982-03-01</th>
-      <td>14.935484</td>
+      <td>13.316129</td>
     </tr>
   </tbody>
 </table>
@@ -467,7 +558,7 @@ temp_bidaily.head()
     </tr>
     <tr>
       <th>1981-01-02 00:00:00</th>
-      <td>17.9</td>
+      <td>15.3</td>
     </tr>
     <tr>
       <th>1981-01-02 12:00:00</th>
@@ -475,7 +566,7 @@ temp_bidaily.head()
     </tr>
     <tr>
       <th>1981-01-03 00:00:00</th>
-      <td>18.8</td>
+      <td>17.8</td>
     </tr>
   </tbody>
 </table>
@@ -528,15 +619,15 @@ temp_bidaily_fill.head()
     </tr>
     <tr>
       <th>1981-01-02 00:00:00</th>
-      <td>17.9</td>
+      <td>15.3</td>
     </tr>
     <tr>
       <th>1981-01-02 12:00:00</th>
-      <td>17.9</td>
+      <td>15.3</td>
     </tr>
     <tr>
       <th>1981-01-03 00:00:00</th>
-      <td>18.8</td>
+      <td>17.8</td>
     </tr>
   </tbody>
 </table>
@@ -558,10 +649,10 @@ print(temp_1985_onwards.tail())
                 Daily_min
     Date                 
     1985-01-01       13.3
-    1985-01-02       15.2
-    1985-01-03       13.1
-    1985-01-04       12.7
-    1985-01-05       14.6
+    1985-02-01       15.2
+    1985-03-01       13.1
+    1985-04-01       12.7
+    1985-05-01       14.6
                 Daily_min
     Date                 
     1990-12-27       14.0
@@ -608,15 +699,28 @@ import numpy as np
 from pandas.core import datetools
 ```
 
+    /anaconda3/lib/python3.6/site-packages/ipykernel_launcher.py:3: FutureWarning: The pandas.core.datetools module is deprecated and will be removed in a future version. Please use the pandas.tseries module instead.
+      This is separate from the ipykernel package so we can avoid doing imports until
+
+
 
 ```python
 nyse = pd.read_csv("NYSE_monthly.csv")
+print(nyse.head())
 col_name= 'Month'
 nyse[col_name] = pd.to_datetime(nyse[col_name])
 nyse.set_index(col_name, inplace=True)
 
 nyse.head()
 ```
+
+         Month  monthly_return
+    0  1961-01           0.082
+    1  1961-02           0.059
+    2  1961-03           0.050
+    3  1961-04           0.008
+    4  1961-05           0.042
+
 
 
 
@@ -688,7 +792,7 @@ plt.show()
 ```
 
 
-![png](index_files/index_34_0.png)
+![png](index_files/index_37_0.png)
 
 
 ## Time series dot plot
@@ -700,13 +804,13 @@ You can change the continuous line to dots, each representing one entry in the t
 
 ```python
 # Draw a line plot using temp and .plot() function. 
-nyse.plot(figsize = (20,6), style = ".b")
+nyse.plot(figsize = (20,6), style = ".r")
 import matplotlib.pyplot as plt
 plt.show()
 ```
 
 
-![png](index_files/index_37_0.png)
+![png](index_files/index_40_0.png)
 
 
 It's not a surprise to sesee that the general pattern looks very much similar to the line plot, however, we are able to identify some outliers that represent very low and very high return months. Dot plots can prove to be very helpful in identifying outliers and very small patterns which may not be so obvious otherwise. 
@@ -732,7 +836,7 @@ Here, A refers to annual frequency. The list of aliases for time-series frequenc
 
 ```python
 # Use pandas grouper to group values using annual frequency
-year_groups = nyse.groupby(pd.Grouper(freq ='A'))
+year_groups = nyse.groupby(pd.Grouper(freq ='A')) # why does freq = 'A' because A stands for Annual
 ```
 
 
@@ -742,14 +846,34 @@ nyse_annual = pd.DataFrame()
 
 for yr, group in year_groups:
     nyse_annual[yr.year] = group.values.ravel()
-    
+
+print(nyse_annual.info())
+nyse_annual.head()
 # Plot the yearly groups as subplots
 nyse_annual.plot(figsize = (13,8), subplots=True, legend=True)
 plt.show()
+
+# Groupby our datetime for some specific date (year, month, day, etc)
+# Convert to a regular DF with the groupby specified time as our columns
+# regular pandas.plot()
 ```
 
+    <class 'pandas.core.frame.DataFrame'>
+    RangeIndex: 12 entries, 0 to 11
+    Data columns (total 6 columns):
+    1961    12 non-null float64
+    1962    12 non-null float64
+    1963    12 non-null float64
+    1964    12 non-null float64
+    1965    12 non-null float64
+    1966    12 non-null float64
+    dtypes: float64(6)
+    memory usage: 656.0 bytes
+    None
 
-![png](index_files/index_41_0.png)
+
+
+![png](index_files/index_44_1.png)
 
 
 We can see 6 subplots, one for each year. Each plot is 12 months in length following the annual frequency.
@@ -764,7 +888,7 @@ plt.show()
 ```
 
 
-![png](index_files/index_43_0.png)
+![png](index_files/index_46_0.png)
 
 
 ## Time Series Histogram and Density Plots
@@ -784,7 +908,7 @@ plt.show()
 ```
 
 
-![png](index_files/index_45_0.png)
+![png](index_files/index_48_0.png)
 
 
 The plot shows a distribution that doesn't exactly look Gaussian/Normal. The plotting function automatically selected the size of the bins based on the spread of values in the data here. Let's see what happens if we set the number of bins equal to 7.
@@ -796,7 +920,7 @@ plt.show()
 ```
 
 
-![png](index_files/index_47_0.png)
+![png](index_files/index_50_0.png)
 
 
 This already looks more normal. With stock exchange returns, it is to be expected that on average, the returns will be 0 and have a gaussian distribution around that. With only 6 years of monthly data, it is to be expected that the distribution does not exactly look gaussian. 
@@ -813,7 +937,7 @@ plt.show()
 ```
 
 
-![png](index_files/index_50_0.png)
+![png](index_files/index_53_0.png)
 
 
 We can see that density plot provides a clearer summary of the distribution of observations. We can see that perhaps the distribution is more gaussian than we were able to see in the histogram.
@@ -838,7 +962,7 @@ plt.show()
 ```
 
 
-![png](index_files/index_53_0.png)
+![png](index_files/index_56_0.png)
 
 
 Comparing box and whisker plots by consistent intervals is a useful tool. Within an interval, it can help to spot outliers (dots above or below the whiskers).
@@ -859,13 +983,150 @@ We'll now create a heatmap of the Minimum Daily Temperatures data. The `matshow(
 
 
 ```python
-year_matrix = nyse_annual.T
+nyse_annual.T
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>10</th>
+      <th>11</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1961</th>
+      <td>0.082</td>
+      <td>0.059</td>
+      <td>0.050</td>
+      <td>0.008</td>
+      <td>0.042</td>
+      <td>-0.042</td>
+      <td>0.011</td>
+      <td>0.021</td>
+      <td>-0.030</td>
+      <td>0.021</td>
+      <td>0.046</td>
+      <td>-0.004</td>
+    </tr>
+    <tr>
+      <th>1962</th>
+      <td>-0.008</td>
+      <td>0.016</td>
+      <td>-0.006</td>
+      <td>-0.048</td>
+      <td>-0.021</td>
+      <td>0.045</td>
+      <td>0.064</td>
+      <td>0.028</td>
+      <td>-0.061</td>
+      <td>-0.022</td>
+      <td>0.071</td>
+      <td>-0.009</td>
+    </tr>
+    <tr>
+      <th>1963</th>
+      <td>0.068</td>
+      <td>-0.015</td>
+      <td>0.021</td>
+      <td>0.039</td>
+      <td>0.032</td>
+      <td>-0.016</td>
+      <td>-0.010</td>
+      <td>0.051</td>
+      <td>-0.018</td>
+      <td>0.016</td>
+      <td>-0.007</td>
+      <td>0.008</td>
+    </tr>
+    <tr>
+      <th>1964</th>
+      <td>0.020</td>
+      <td>0.027</td>
+      <td>0.031</td>
+      <td>-0.003</td>
+      <td>0.012</td>
+      <td>0.015</td>
+      <td>0.028</td>
+      <td>-0.009</td>
+      <td>0.037</td>
+      <td>0.017</td>
+      <td>0.001</td>
+      <td>-0.007</td>
+    </tr>
+    <tr>
+      <th>1965</th>
+      <td>0.059</td>
+      <td>0.028</td>
+      <td>0.005</td>
+      <td>0.036</td>
+      <td>-0.008</td>
+      <td>-0.054</td>
+      <td>0.029</td>
+      <td>0.055</td>
+      <td>0.031</td>
+      <td>0.047</td>
+      <td>0.030</td>
+      <td>0.033</td>
+    </tr>
+    <tr>
+      <th>1966</th>
+      <td>0.044</td>
+      <td>0.011</td>
+      <td>-0.022</td>
+      <td>0.034</td>
+      <td>-0.052</td>
+      <td>-0.005</td>
+      <td>-0.013</td>
+      <td>-0.030</td>
+      <td>-0.014</td>
+      <td>0.013</td>
+      <td>0.038</td>
+      <td>0.040</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+year_matrix = nyse_annual.T # <- matrix.T transposes our Matrix switching the columns and rows
 plt.matshow(year_matrix, interpolation=None, aspect='auto', cmap=plt.cm.Spectral_r)
 plt.show()
 ```
 
 
-![png](index_files/index_57_0.png)
+![png](index_files/index_61_0.png)
 
 
 Orange/red colors represent higher values, blue represents low values, green represents values in the middle. Heatplots will make more sense after you've gone through the lab which will follow later and examinge the Australian temperature data.
